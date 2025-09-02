@@ -47,7 +47,6 @@
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new MaterialSkin.Controls.MaterialButton();
-            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
             this.txtSearch = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.txtStudent = new MaterialSkin.Controls.MaterialTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -364,26 +363,6 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAdd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAdd.Depth = 0;
-            this.btnAdd.HighEmphasis = true;
-            this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(961, 626);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAdd.Size = new System.Drawing.Size(84, 36);
-            this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Refresh";
-            this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAdd.UseAccentColor = false;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // txtSearch
             // 
             this.txtSearch.AllowPromptAsInput = true;
@@ -432,7 +411,7 @@
             this.txtStudent.AnimateReadOnly = false;
             this.txtStudent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtStudent.Depth = 0;
-            this.txtStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtStudent.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtStudent.Hint = "Enter your Student Number";
             this.txtStudent.LeadingIcon = null;
@@ -446,6 +425,7 @@
             this.txtStudent.Text = "";
             this.txtStudent.TrailingIcon = null;
             this.txtStudent.TextChanged += new System.EventHandler(this.txtStudent_TextChanged);
+            this.txtStudent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // Form1
             // 
@@ -455,7 +435,6 @@
             this.ClientSize = new System.Drawing.Size(1093, 705);
             this.Controls.Add(this.txtStudent);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtPassword);
@@ -506,7 +485,6 @@
         private MaterialSkin.Controls.MaterialTextBox txtPassword;
         private System.Windows.Forms.DataGridView dataGridView1;
         private MaterialSkin.Controls.MaterialButton btnUpdate;
-        private MaterialSkin.Controls.MaterialButton btnAdd;
         private MaterialSkin.Controls.MaterialMaskedTextBox txtSearch;
         private MaterialSkin.Controls.MaterialTextBox txtStudent;
     }

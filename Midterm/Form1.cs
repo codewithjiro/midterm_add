@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -39,15 +33,24 @@ namespace Midterm
                 else if (me == txtPassword) txtStudent.Focus();
                 else if (me == txtStudent)
                 {
+                    if (string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                        string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                        string.IsNullOrWhiteSpace(txtUsername.Text) ||
+                        string.IsNullOrWhiteSpace(txtPassword.Text))
+                    {
+                        MessageBox.Show("Please fill in all required fields.");
+                        return;
+                    }
+
                     try
                     {
                         using (MySqlConnection conn = new MySqlConnection(connectionString))
                         {
                             conn.Open();
                             string query = @"INSERT INTO users
-                                    (lastname, firstname, middlename, gender, age, dept, username, password, student)
+                                    (lastname, firstname, middlename, gender, age, dept, username, `password`, student)
                                     VALUES
-                                    (@lastname, @firstname, @middlename, @gender, @age, @dept, @username, @password, @student       )";
+                                    (@lastname, @firstname, @middlename, @gender, @age, @dept, @username, @password, @student)";
 
                             using (MySqlCommand cmd = new MySqlCommand(query, conn))
                             {
@@ -55,7 +58,7 @@ namespace Midterm
                                 cmd.Parameters.AddWithValue("@firstname", txtFirstName.Text);
                                 cmd.Parameters.AddWithValue("@middlename", txtMiddleName.Text);
                                 cmd.Parameters.AddWithValue("@gender", cbGender.Text);
-                                cmd.Parameters.AddWithValue("@age", txtAge.Text);
+                                cmd.Parameters.AddWithValue("@age", Convert.ToInt32(txtAge.Text));
                                 cmd.Parameters.AddWithValue("@dept", cbDept.Text);
                                 cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
@@ -79,6 +82,7 @@ namespace Midterm
                     txtAge.Clear();
                     txtUsername.Clear();
                     txtPassword.Clear();
+                    txtStudent.Clear();
                     txtLastName.Focus();
                 }
             }
@@ -91,7 +95,7 @@ namespace Midterm
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT id, lastname, firstname, middlename, gender, age, dept, username, password, student FROM users";
+                    string query = "SELECT id, lastname, firstname, middlename, gender, age, dept, username, `password`, student FROM users";
                     MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -107,7 +111,6 @@ namespace Midterm
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadData();
-
             cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDept.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -117,7 +120,9 @@ namespace Midterm
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                selectedId = Convert.ToInt32(row.Cells["id"].Value);
+
+                if (row.Cells["id"].Value != null)
+                    selectedId = Convert.ToInt32(row.Cells["id"].Value);
 
                 txtLastName.Text = row.Cells["lastname"].Value.ToString();
                 txtFirstName.Text = row.Cells["firstname"].Value.ToString();
@@ -125,8 +130,8 @@ namespace Midterm
                 txtAge.Text = row.Cells["age"].Value.ToString();
                 txtUsername.Text = row.Cells["username"].Value.ToString();
                 txtPassword.Text = row.Cells["password"].Value.ToString();
+                txtStudent.Text = row.Cells["student"].Value.ToString();
 
-                // Safe ComboBox update with repaint
                 SetComboBoxValue(cbGender, row.Cells["gender"].Value.ToString().Trim());
                 SetComboBoxValue(cbDept, row.Cells["dept"].Value.ToString().Trim());
             }
@@ -135,10 +140,7 @@ namespace Midterm
         private void SetComboBoxValue(ComboBox cb, string value)
         {
             int index = cb.FindStringExact(value);
-            if (index >= 0)
-                cb.SelectedIndex = index;
-            else
-                cb.SelectedIndex = -1;
+            cb.SelectedIndex = index >= 0 ? index : -1;
             cb.Refresh();
         }
 
@@ -158,7 +160,7 @@ namespace Midterm
                     string query = @"UPDATE users SET
                             lastname=@lastname, firstname=@firstname, middlename=@middlename,
                             gender=@gender, age=@age, dept=@dept,
-                            username=@username, password=@password, student=@student
+                            username=@username, `password`=@password, student=@student
                             WHERE id=@id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -167,7 +169,7 @@ namespace Midterm
                         cmd.Parameters.AddWithValue("@firstname", txtFirstName.Text);
                         cmd.Parameters.AddWithValue("@middlename", txtMiddleName.Text);
                         cmd.Parameters.AddWithValue("@gender", cbGender.Text);
-                        cmd.Parameters.AddWithValue("@age", txtAge.Text);
+                        cmd.Parameters.AddWithValue("@age", Convert.ToInt32(txtAge.Text));
                         cmd.Parameters.AddWithValue("@dept", cbDept.Text);
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                         cmd.Parameters.AddWithValue("@password", txtPassword.Text);
@@ -180,22 +182,19 @@ namespace Midterm
 
                 MessageBox.Show("Record updated successfully!");
                 LoadData();
+                txtLastName.Clear();
+                txtFirstName.Clear();
+                txtMiddleName.Clear();
+                txtAge.Clear();
+                txtUsername.Clear();
+                txtPassword.Clear();
+                txtStudent.Clear();
+                txtLastName.Focus();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            txtLastName.Clear();
-            txtFirstName.Clear();
-            txtMiddleName.Clear();
-            txtAge.Clear();
-            txtUsername.Clear();
-            txtPassword.Clear();
-            txtLastName.Focus();
         }
 
         private void SearchData(string searchTerm)
@@ -206,9 +205,9 @@ namespace Midterm
                 {
                     conn.Open();
 
-                    string query = @"SELECT id, lastname, firstname, middlename, gender, age, dept, username, password, student
+                    string query = @"SELECT id, lastname, firstname, middlename, gender, age, dept, username, `password`, student
                              FROM users
-                             WHERE CONCAT(lastname, ' ', firstname, ' ', username) LIKE @search";
+                             WHERE CONCAT(student) LIKE @search";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
