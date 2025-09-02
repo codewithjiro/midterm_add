@@ -45,11 +45,11 @@
             this.txtAge = new MaterialSkin.Controls.MaterialTextBox();
             this.txtUsername = new MaterialSkin.Controls.MaterialTextBox();
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
-            this.cbZodiac = new MaterialSkin.Controls.MaterialComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new MaterialSkin.Controls.MaterialButton();
             this.btnAdd = new MaterialSkin.Controls.MaterialButton();
             this.txtSearch = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.txtStudent = new MaterialSkin.Controls.MaterialTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +87,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(557, 64);
+            this.label4.Location = new System.Drawing.Point(32, 409);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(145, 27);
             this.label4.TabIndex = 3;
@@ -117,17 +117,17 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(557, 311);
+            this.label7.Location = new System.Drawing.Point(12, 635);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 27);
+            this.label7.Size = new System.Drawing.Size(192, 27);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Zodiac Sign";
+            this.label7.Text = "Student Number";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(557, 141);
+            this.label8.Location = new System.Drawing.Point(32, 486);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 27);
             this.label8.TabIndex = 7;
@@ -137,7 +137,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(557, 232);
+            this.label9.Location = new System.Drawing.Point(32, 559);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(115, 27);
             this.label9.TabIndex = 8;
@@ -226,7 +226,7 @@
             "Education",
             "Information Technology",
             "Engineering"});
-            this.cbDept.Location = new System.Drawing.Point(745, 42);
+            this.cbDept.Location = new System.Drawing.Point(220, 387);
             this.cbDept.MaxDropDownItems = 4;
             this.cbDept.MouseState = MaterialSkin.MouseState.OUT;
             this.cbDept.Name = "cbDept";
@@ -293,7 +293,7 @@
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtUsername.Hint = "Enter your username";
             this.txtUsername.LeadingIcon = null;
-            this.txtUsername.Location = new System.Drawing.Point(745, 131);
+            this.txtUsername.Location = new System.Drawing.Point(220, 476);
             this.txtUsername.MaxLength = 50;
             this.txtUsername.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUsername.Multiline = false;
@@ -313,7 +313,7 @@
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtPassword.Hint = "Enter your password";
             this.txtPassword.LeadingIcon = null;
-            this.txtPassword.Location = new System.Drawing.Point(745, 223);
+            this.txtPassword.Location = new System.Drawing.Point(220, 550);
             this.txtPassword.MaxLength = 50;
             this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPassword.Multiline = false;
@@ -324,70 +324,34 @@
             this.txtPassword.TrailingIcon = null;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
-            // cbZodiac
-            // 
-            this.cbZodiac.AutoResize = false;
-            this.cbZodiac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbZodiac.Depth = 0;
-            this.cbZodiac.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbZodiac.DropDownHeight = 174;
-            this.cbZodiac.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbZodiac.DropDownWidth = 121;
-            this.cbZodiac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbZodiac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cbZodiac.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cbZodiac.FormattingEnabled = true;
-            this.cbZodiac.Hint = "Choose your Zodiac Sign";
-            this.cbZodiac.IntegralHeight = false;
-            this.cbZodiac.ItemHeight = 43;
-            this.cbZodiac.Items.AddRange(new object[] {
-            "Aries",
-            "Taurus",
-            "Gemini",
-            "Cancer",
-            "Leo",
-            "Virgo",
-            "Libra",
-            "Scorpio",
-            "Sagittarius",
-            "Capricorn",
-            "Aquarius",
-            "Pisces"});
-            this.cbZodiac.Location = new System.Drawing.Point(745, 298);
-            this.cbZodiac.MaxDropDownItems = 4;
-            this.cbZodiac.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbZodiac.Name = "cbZodiac";
-            this.cbZodiac.Size = new System.Drawing.Size(300, 49);
-            this.cbZodiac.StartIndex = 0;
-            this.cbZodiac.TabIndex = 19;
-            this.cbZodiac.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 395);
+            this.dataGridView1.Location = new System.Drawing.Point(560, 26);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1008, 222);
+            this.dataGridView1.Size = new System.Drawing.Size(503, 560);
             this.dataGridView1.TabIndex = 20;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // btnUpdate
             // 
             this.btnUpdate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.Info;
             this.btnUpdate.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnUpdate.Depth = 0;
             this.btnUpdate.HighEmphasis = true;
             this.btnUpdate.Icon = null;
-            this.btnUpdate.Location = new System.Drawing.Point(341, 644);
+            this.btnUpdate.Location = new System.Drawing.Point(835, 626);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
@@ -397,7 +361,7 @@
             this.btnUpdate.Text = "Update";
             this.btnUpdate.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnUpdate.UseAccentColor = false;
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
@@ -407,7 +371,7 @@
             this.btnAdd.Depth = 0;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(473, 644);
+            this.btnAdd.Location = new System.Drawing.Point(961, 626);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -435,7 +399,7 @@
             this.txtSearch.Hint = "Search...";
             this.txtSearch.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.txtSearch.LeadingIcon = null;
-            this.txtSearch.Location = new System.Drawing.Point(37, 632);
+            this.txtSearch.Location = new System.Drawing.Point(560, 622);
             this.txtSearch.Mask = "";
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.MouseState = MaterialSkin.MouseState.OUT;
@@ -463,16 +427,37 @@
             this.txtSearch.ValidatingType = null;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // txtStudent
+            // 
+            this.txtStudent.AnimateReadOnly = false;
+            this.txtStudent.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStudent.Depth = 0;
+            this.txtStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtStudent.Hint = "Enter your Student Number";
+            this.txtStudent.LeadingIcon = null;
+            this.txtStudent.Location = new System.Drawing.Point(220, 626);
+            this.txtStudent.MaxLength = 50;
+            this.txtStudent.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtStudent.Multiline = false;
+            this.txtStudent.Name = "txtStudent";
+            this.txtStudent.Size = new System.Drawing.Size(300, 50);
+            this.txtStudent.TabIndex = 25;
+            this.txtStudent.Text = "";
+            this.txtStudent.TrailingIcon = null;
+            this.txtStudent.TextChanged += new System.EventHandler(this.txtStudent_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1093, 705);
+            this.Controls.Add(this.txtStudent);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cbZodiac);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtAge);
@@ -519,11 +504,11 @@
         private MaterialSkin.Controls.MaterialTextBox txtAge;
         private MaterialSkin.Controls.MaterialTextBox txtUsername;
         private MaterialSkin.Controls.MaterialTextBox txtPassword;
-        private MaterialSkin.Controls.MaterialComboBox cbZodiac;
         private System.Windows.Forms.DataGridView dataGridView1;
         private MaterialSkin.Controls.MaterialButton btnUpdate;
         private MaterialSkin.Controls.MaterialButton btnAdd;
         private MaterialSkin.Controls.MaterialMaskedTextBox txtSearch;
+        private MaterialSkin.Controls.MaterialTextBox txtStudent;
     }
 }
 

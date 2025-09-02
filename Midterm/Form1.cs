@@ -36,8 +36,8 @@ namespace Midterm
                 else if (me == txtAge) cbDept.Focus();
                 else if (me == cbDept) txtUsername.Focus();
                 else if (me == txtUsername) txtPassword.Focus();
-                else if (me == txtPassword) cbZodiac.Focus();
-                else if (me == cbZodiac)
+                else if (me == txtPassword) txtStudent.Focus();
+                else if (me == txtStudent)
                 {
                     try
                     {
@@ -45,9 +45,9 @@ namespace Midterm
                         {
                             conn.Open();
                             string query = @"INSERT INTO users
-                                    (lastname, firstname, middlename, gender, age, dept, username, password, zodiac)
+                                    (lastname, firstname, middlename, gender, age, dept, username, password, student)
                                     VALUES
-                                    (@lastname, @firstname, @middlename, @gender, @age, @dept, @username, @password, @zodiac)";
+                                    (@lastname, @firstname, @middlename, @gender, @age, @dept, @username, @password, @student       )";
 
                             using (MySqlCommand cmd = new MySqlCommand(query, conn))
                             {
@@ -59,7 +59,7 @@ namespace Midterm
                                 cmd.Parameters.AddWithValue("@dept", cbDept.Text);
                                 cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                                 cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                                cmd.Parameters.AddWithValue("@zodiac", cbZodiac.Text);
+                                cmd.Parameters.AddWithValue("@student", txtStudent.Text);
 
                                 cmd.ExecuteNonQuery();
                                 LoadData();
@@ -91,7 +91,7 @@ namespace Midterm
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT id, lastname, firstname, middlename, gender, age, dept, username, password, zodiac FROM users";
+                    string query = "SELECT id, lastname, firstname, middlename, gender, age, dept, username, password, student FROM users";
                     MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
@@ -110,7 +110,6 @@ namespace Midterm
 
             cbGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDept.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbZodiac.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -130,7 +129,6 @@ namespace Midterm
                 // Safe ComboBox update with repaint
                 SetComboBoxValue(cbGender, row.Cells["gender"].Value.ToString().Trim());
                 SetComboBoxValue(cbDept, row.Cells["dept"].Value.ToString().Trim());
-                SetComboBoxValue(cbZodiac, row.Cells["zodiac"].Value.ToString().Trim());
             }
         }
 
@@ -160,7 +158,7 @@ namespace Midterm
                     string query = @"UPDATE users SET
                             lastname=@lastname, firstname=@firstname, middlename=@middlename,
                             gender=@gender, age=@age, dept=@dept,
-                            username=@username, password=@password, zodiac=@zodiac
+                            username=@username, password=@password, student=@student
                             WHERE id=@id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -173,7 +171,7 @@ namespace Midterm
                         cmd.Parameters.AddWithValue("@dept", cbDept.Text);
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text);
                         cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-                        cmd.Parameters.AddWithValue("@zodiac", cbZodiac.Text);
+                        cmd.Parameters.AddWithValue("@student", txtStudent.Text);
                         cmd.Parameters.AddWithValue("@id", selectedId);
 
                         cmd.ExecuteNonQuery();
@@ -208,7 +206,7 @@ namespace Midterm
                 {
                     conn.Open();
 
-                    string query = @"SELECT id, lastname, firstname, middlename, gender, age, dept, username, password, zodiac
+                    string query = @"SELECT id, lastname, firstname, middlename, gender, age, dept, username, password, student
                              FROM users
                              WHERE CONCAT(lastname, ' ', firstname, ' ', username) LIKE @search";
 
@@ -232,6 +230,10 @@ namespace Midterm
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             SearchData(txtSearch.Text.Trim());
+        }
+
+        private void txtStudent_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
