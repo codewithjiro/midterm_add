@@ -160,6 +160,7 @@
             this.txtLastName.TabIndex = 9;
             this.txtLastName.Text = "";
             this.txtLastName.TrailingIcon = null;
+            this.txtLastName.UseAccent = false;
             this.txtLastName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // txtFirstName
@@ -180,6 +181,7 @@
             this.txtFirstName.TabIndex = 10;
             this.txtFirstName.Text = "";
             this.txtFirstName.TrailingIcon = null;
+            this.txtFirstName.UseAccent = false;
             this.txtFirstName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // txtMiddleName
@@ -200,6 +202,7 @@
             this.txtMiddleName.TabIndex = 11;
             this.txtMiddleName.Text = "";
             this.txtMiddleName.TrailingIcon = null;
+            this.txtMiddleName.UseAccent = false;
             this.txtMiddleName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // cbDept
@@ -232,6 +235,7 @@
             this.cbDept.Size = new System.Drawing.Size(300, 49);
             this.cbDept.StartIndex = 0;
             this.cbDept.TabIndex = 13;
+            this.cbDept.UseAccent = false;
             this.cbDept.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // cbGender
@@ -261,6 +265,7 @@
             this.cbGender.Size = new System.Drawing.Size(300, 49);
             this.cbGender.StartIndex = 0;
             this.cbGender.TabIndex = 14;
+            this.cbGender.UseAccent = false;
             this.cbGender.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // txtAge
@@ -281,6 +286,7 @@
             this.txtAge.TabIndex = 15;
             this.txtAge.Text = "";
             this.txtAge.TrailingIcon = null;
+            this.txtAge.UseAccent = false;
             this.txtAge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // txtUsername
@@ -301,6 +307,7 @@
             this.txtUsername.TabIndex = 17;
             this.txtUsername.Text = "";
             this.txtUsername.TrailingIcon = null;
+            this.txtUsername.UseAccent = false;
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // txtPassword
@@ -321,6 +328,7 @@
             this.txtPassword.TabIndex = 18;
             this.txtPassword.Text = "";
             this.txtPassword.TrailingIcon = null;
+            this.txtPassword.UseAccent = false;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // dataGridView1
@@ -402,6 +410,7 @@
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSearch.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
             this.txtSearch.TrailingIcon = null;
+            this.txtSearch.UseAccent = false;
             this.txtSearch.UseSystemPasswordChar = false;
             this.txtSearch.ValidatingType = null;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -424,7 +433,7 @@
             this.txtStudent.TabIndex = 25;
             this.txtStudent.Text = "";
             this.txtStudent.TrailingIcon = null;
-            this.txtStudent.TextChanged += new System.EventHandler(this.txtStudent_TextChanged);
+            this.txtStudent.UseAccent = false;
             this.txtStudent.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxes_KeyDown);
             // 
             // Form1
